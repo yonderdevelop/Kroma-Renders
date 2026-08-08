@@ -1,7 +1,8 @@
 import { Check } from 'lucide-react';
-import { siteData } from '../data/siteData';
+import { useSiteData } from '../context/LanguageContext';
 
 export default function Pricing() {
+  const siteData = useSiteData();
   const { eyebrow, title, subtitle, package: pkg } = siteData.pricing;
 
   return (
@@ -31,7 +32,7 @@ export default function Pricing() {
 
           <div className="mt-4">
             <div className="flex items-baseline gap-2 flex-wrap">
-              <span className="font-mono text-sm text-cream-300">Desde</span>
+              <span className="font-mono text-sm text-cream-300">{pkg.priceLabel}</span>
               <span className="font-display text-5xl text-cream-50">
                 {pkg.currency} ${pkg.price}
               </span>
@@ -45,8 +46,8 @@ export default function Pricing() {
               <div className="w-1/2 rounded-full bg-bronze-500" />
             </div>
             <div className="mt-2 flex justify-between font-mono text-[10px] tracking-wider uppercase text-cream-300">
-              <span>50% al iniciar</span>
-              <span>50% contra entrega</span>
+              <span>{pkg.depositLabel}</span>
+              <span>{pkg.finalLabel}</span>
             </div>
           </div>
 

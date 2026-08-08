@@ -36,6 +36,7 @@ export const siteData = {
       "Renders hiperrealistas de interiores para que tus clientes visualicen el espacio y aprueben el presupuesto sin dudar. Entrega garantizada, revisiones incluidas.",
     ctaPrimary: "Hablemos de tu Proyecto",
     ctaSecondary: "Ver Portafolio",
+    imageAlt: "Render hiperrealista de dormitorio — Kroma Renders",
   },
   valueProps: {
     eyebrow: "El Servicio",
@@ -65,6 +66,7 @@ export const siteData = {
     eyebrow: "El Proceso",
     title: "Cómo Funciona",
     subtitle: "De tu brief a un render listo para presentar, en 5 pasos.",
+    paymentBadge: "Pago 50%",
     steps: [
       {
         number: "01",
@@ -99,9 +101,12 @@ export const siteData = {
     subtitle: "Tarifa por paquete de imágenes, no por metro cuadrado.",
     package: {
       name: "Paquete Inicial",
+      priceLabel: "Desde",
       price: "400",
       currency: "USD",
       unit: "por 2 a 3 renders de interior",
+      depositLabel: "50% al iniciar",
+      finalLabel: "50% contra entrega",
       features: [
         "Modelado 3D del espacio",
         "Iluminación y renderizado hiperrealista",
@@ -117,6 +122,7 @@ export const siteData = {
     title: "Ambientes que Trabajamos",
     subtitle:
       "Cada proyecto se adapta al espacio real del cliente — estas son las categorías donde tenemos más experiencia.",
+    altPrefix: "Render de",
     categories: [
       { key: "living", label: "Living", image: livingImg },
       { key: "cocina", label: "Cocina" },
@@ -143,6 +149,8 @@ export const siteData = {
   footer: {
     brand: "Kroma Renders",
     tagline: "Renders de interiores que ayudan a cerrar proyectos.",
+    navLabel: "Navegación",
+    socialLabel: "Redes",
     links: [
       { label: "Servicio", href: "#servicio" },
       { label: "Proceso", href: "#proceso" },

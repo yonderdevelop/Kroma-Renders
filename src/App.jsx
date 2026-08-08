@@ -1,4 +1,5 @@
 import Layout from './components/Layout';
+import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ValueProps from './components/ValueProps';
@@ -10,16 +11,18 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <Layout>
-      <Navbar />
-      <Hero />
-      <ValueProps />
-      <Process />
-      <Pricing />
-      <Gallery />
-      <ContactCTA />
-      <Footer />
-    </Layout>
+    <LanguageProvider>
+      <Layout>
+        <Navbar />
+        <Hero />
+        <ValueProps />
+        <Process />
+        <Pricing />
+        <Gallery />
+        <ContactCTA />
+        <Footer />
+      </Layout>
+    </LanguageProvider>
   );
 }
 

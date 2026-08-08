@@ -1,7 +1,8 @@
-import { siteData } from '../data/siteData';
+import { useSiteData } from '../context/LanguageContext';
 
 export default function Footer() {
-  const { brand, tagline, links, social, copyright } = siteData.footer;
+  const siteData = useSiteData();
+  const { brand, tagline, links, social, copyright, navLabel, socialLabel } = siteData.footer;
 
   return (
     <footer className="relative bg-carbon-950 border-t border-cream-50/10 pt-16 pb-8">
@@ -21,7 +22,7 @@ export default function Footer() {
           <div className="flex gap-16">
             <div>
               <p className="font-mono text-xs tracking-widest uppercase text-cream-300 mb-4">
-                Navegación
+                {navLabel}
               </p>
               <ul className="space-y-2.5">
                 {links.map((link) => (
@@ -38,7 +39,7 @@ export default function Footer() {
             </div>
             <div>
               <p className="font-mono text-xs tracking-widest uppercase text-cream-300 mb-4">
-                Redes
+                {socialLabel}
               </p>
               <ul className="space-y-2.5">
                 {social.map((item) => {

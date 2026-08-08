@@ -1,8 +1,9 @@
-import { siteData } from '../data/siteData';
+import { useSiteData } from '../context/LanguageContext';
 import ViewportFrame from './ViewportFrame';
 
 export default function Gallery() {
-  const { eyebrow, title, subtitle, categories, instagramNote, instagramCta, instagramHref } = siteData.gallery;
+  const siteData = useSiteData();
+  const { eyebrow, title, subtitle, categories, instagramNote, instagramCta, instagramHref, altPrefix } = siteData.gallery;
   const readyCategories = categories.filter((cat) => cat.image);
 
   return (
@@ -25,7 +26,7 @@ export default function Gallery() {
             <ViewportFrame key={cat.key} label={cat.label} className="group aspect-square">
               <img
                 src={cat.image}
-                alt={`Render de ${cat.label} — Kroma Renders`}
+                alt={`${altPrefix} ${cat.label} — Kroma Renders`}
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />

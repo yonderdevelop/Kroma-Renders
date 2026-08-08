@@ -1,7 +1,8 @@
-import { siteData } from '../data/siteData';
+import { useSiteData } from '../context/LanguageContext';
 
 export default function Process() {
-  const { eyebrow, title, subtitle, steps } = siteData.process;
+  const siteData = useSiteData();
+  const { eyebrow, title, subtitle, steps, paymentBadge } = siteData.process;
 
   return (
     <section id="proceso" className="relative bg-carbon-900 py-20 md:py-28">
@@ -42,7 +43,7 @@ export default function Process() {
                       </h3>
                       {isPayment && (
                         <span className="font-mono text-[10px] tracking-wider uppercase px-2 py-1 rounded-full border border-bronze-400/40 text-bronze-400">
-                          Pago 50%
+                          {paymentBadge}
                         </span>
                       )}
                     </div>

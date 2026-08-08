@@ -1,5 +1,5 @@
 import { Zap, ShieldCheck, Briefcase } from 'lucide-react';
-import { siteData } from '../data/siteData';
+import { useSiteData } from '../context/LanguageContext';
 
 const icons = {
   zap: Zap,
@@ -8,6 +8,7 @@ const icons = {
 };
 
 export default function ValueProps() {
+  const siteData = useSiteData();
   const { eyebrow, title, items } = siteData.valueProps;
 
   return (

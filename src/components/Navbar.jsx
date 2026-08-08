@@ -1,9 +1,14 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import { siteData } from '../data/siteData';
+import { Menu, X, Globe } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { siteData, lang, toggleLang } = useLanguage();
+  const nextLangLabel = lang === 'es' ? 'EN' : 'ES';
+  const menuLabel = open
+    ? (lang === 'es' ? 'Cerrar menú' : 'Close menu')
+    : (lang === 'es' ? 'Abrir menú' : 'Open menu');
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-cream-50/10 bg-carbon-950/80 backdrop-blur-md">
@@ -31,6 +36,15 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={toggleLang}
+            aria-label={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-cream-50/20 px-3 py-1.5 text-xs font-mono tracking-wider text-cream-200 hover:border-bronze-400/60 hover:text-cream-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze-400"
+          >
+            <Globe size={13} />
+            {nextLangLabel}
+          </button>
           <a
             href="#contacto"
             className="hidden sm:inline-flex items-center rounded-full bg-bronze-500 px-5 py-2.5 text-sm font-medium text-carbon-950 hover:bg-bronze-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze-400 focus-visible:ring-offset-2 focus-visible:ring-offset-carbon-950"
@@ -40,7 +54,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+            aria-label={menuLabel}
             aria-expanded={open}
             className="md:hidden p-2 -mr-2 text-cream-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze-400 rounded"
           >
@@ -61,6 +75,14 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <button
+            type="button"
+            onClick={toggleLang}
+            className="inline-flex items-center gap-1.5 self-start rounded-full border border-cream-50/20 px-3 py-1.5 text-xs font-mono tracking-wider text-cream-200"
+          >
+            <Globe size={13} />
+            {lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+          </button>
           <a
             href="#contacto"
             onClick={() => setOpen(false)}

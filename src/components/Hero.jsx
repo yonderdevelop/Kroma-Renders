@@ -1,8 +1,10 @@
-import { siteData } from '../data/siteData';
+import { useSiteData } from '../context/LanguageContext';
 import ViewportFrame from './ViewportFrame';
 import heroImg from '../assets/hero/hero-1.webp';
 
 export default function Hero() {
+  const siteData = useSiteData();
+
   return (
     <section className="relative overflow-hidden pt-28 pb-20 md:pt-40 md:pb-28">
       <div className="mx-auto max-w-6xl px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-10 items-center">
@@ -36,7 +38,7 @@ export default function Hero() {
         <ViewportFrame label="INTERIOR_STUDY · 01" className="aspect-[4/3] w-full">
           <img
             src={heroImg}
-            alt="Render hiperrealista de dormitorio — Kroma Renders"
+            alt={siteData.hero.imageAlt}
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div

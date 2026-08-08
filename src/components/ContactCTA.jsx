@@ -1,7 +1,8 @@
 import { MessageCircle } from 'lucide-react';
-import { siteData } from '../data/siteData';
+import { useSiteData } from '../context/LanguageContext';
 
 export default function ContactCTA() {
+  const siteData = useSiteData();
   const { title, subtitle, cta, ctaHref, channels, paymentNote } = siteData.contactCta;
 
   return (
